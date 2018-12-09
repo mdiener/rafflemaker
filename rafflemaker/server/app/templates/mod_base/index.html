@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="login-box">
+    <h1>Login</h1>
+    <form method="POST" action="/user/login">
+        <input type="email" name="email" placeholder="email" />
+        <input type="password" name="password" placeholder="password" />
+        <button type="submit">Login</button>
+    </form>
+    <div class="login-bottom">
+        <a href="/user/create">Sign Up</a>
+        <a href="/user/reset-password">Reset Password</a>
+    </div>
+</div>
+{% endblock %}

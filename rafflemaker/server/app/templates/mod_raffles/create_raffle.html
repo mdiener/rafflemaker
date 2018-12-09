@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="create_raffle_view">
+    <h1>Create a new raffle!</h1>
+    <form method="POST" action="/raffle">
+        <input type="text" name="name" placeholder="Raffle Name" />
+        <textarea name="description" placeholder="Description"></textarea>
+        <input type="number" name="max_winners" value="1" />
+        <button type="submit">Create Raffle</button>
+    </form>
+</div>
+{% endblock %}
