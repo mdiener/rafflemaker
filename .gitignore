@@ -2,3 +2,4 @@
 __pycache__
 rafflemaker/static/node_modules
 rafflemaker/server/.venv
+rafflemaker/server/.env

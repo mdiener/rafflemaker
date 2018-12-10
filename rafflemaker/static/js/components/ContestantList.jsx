@@ -10,6 +10,9 @@ export default class ContestantList extends React.Component {
             contestants: []
         }
 
+        this._restURL = window.location.origin + '/rafflemaker/rest/raffle/';
+        this._baseURL = window.location.origin + '/rafflemaker/raffle/';
+
         this.onContestantUpdate = this.onContestantUpdate.bind(this);
         this.onRemoveClicked = this.onRemoveClicked.bind(this);
         this.onAddClicked = this.onAddClicked.bind(this);
@@ -28,7 +31,7 @@ export default class ContestantList extends React.Component {
     }
 
     onContestantUpdate(contestantid, values) {
-        window.fetch(window.location.origin + '/rest/raffle/' + this.props.raffleid + '/contestant/' + contestantid, {
+        window.fetch(this._restURL + this.props.raffleid + '/contestant/' + contestantid, {
             method: 'POST',
             body: JSON.stringify({
                 'name': values['name'],
@@ -43,7 +46,7 @@ export default class ContestantList extends React.Component {
     onRemoveClicked(contestantid) {
         let self = this;
 
-        window.fetch(window.location.origin + '/rest/raffle/' + this.props.raffleid + '/contestant/' + contestantid, {
+        window.fetch(this._restURL + this.props.raffleid + '/contestant/' + contestantid, {
             method: 'DELETE'
         }).then(function(response) {
             if (!response.ok) {
@@ -73,7 +76,7 @@ export default class ContestantList extends React.Component {
     }
 
     loadContestants() {
-        window.fetch(window.location.origin + '/rest/raffle/' + this.props.raffleid + '/contestants').then(res => res.json()).then((result) =>
+        window.fetch(this._restURL + this.props.raffleid + '/contestants').then(res => res.json()).then((result) =>
             this.setState({
                 contestants: result
             })
@@ -85,7 +88,7 @@ export default class ContestantList extends React.Component {
         let name = document.getElementById('contestant_name_input').value;
         let tickets = Number(document.getElementById('contestant_tickets_input').value);
 
-        let promise = window.fetch(window.location.origin + '/rest/raffle/' + this.props.raffleid + '/contestant', {
+        let promise = window.fetch(this._restURL + this.props.raffleid + '/contestant', {
             method: 'POST',
             body: JSON.stringify({
                 'name': name,

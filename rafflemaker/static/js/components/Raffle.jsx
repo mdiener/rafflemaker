@@ -12,6 +12,9 @@ export default class Raffle extends React.Component {
             max_winners: 1,
         };
 
+        this._restURL = window.location.origin + '/rafflemaker/rest/raffle/';
+        this._baseURL = window.location.origin + '/rafflemaker/raffle/';
+
         this.onNameChanged = this.onNameChanged.bind(this);
         this.onDescriptionChanged = this.onDescriptionChanged.bind(this);
         this.onMaxWinnersChanged = this.onMaxWinnersChanged.bind(this);
@@ -19,7 +22,7 @@ export default class Raffle extends React.Component {
     }
 
     componentDidUpdate() {
-        window.fetch(window.location.origin + '/rest/raffle/' + this.props.raffleid, {
+        window.fetch(this._restURL + this.props.raffleid, {
             method: 'POST',
             body: JSON.stringify({
                 'name': this.state.name,
@@ -37,7 +40,7 @@ export default class Raffle extends React.Component {
     }
 
     componentDidMount() {
-        window.fetch(window.location.origin + '/rest/raffle/' + this.props.raffleid).then(res => res.json()).then((result) =>
+        window.fetch(this._restURL + this.props.raffleid).then(res => res.json()).then((result) =>
             this.setState({
                 name: result['name'],
                 description: result['description'],
@@ -65,11 +68,11 @@ export default class Raffle extends React.Component {
     }
 
     onWinnerClicked() {
-        document.location = document.location.origin + '/raffle/' + this.props.raffleid + '/winners';
+        document.location = this._baseURL + this.props.raffleid + '/winners';
     }
 
     render() {
-        let winner_url = document.location.origin + '/raffle/' + this.props.raffleid + '/winners';
+        let winner_url = this._baseURL + this.props.raffleid + '/winners';
 
         return <div className="raffle">
             <div className="header">

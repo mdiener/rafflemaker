@@ -3,14 +3,14 @@
 {% block content %}
 <div class="login-box">
     <h1>Login</h1>
-    <form method="POST" action="/user/login">
+    <form method="POST" action="{{ url_for('view.login') }}">
         <input type="email" name="email" placeholder="email" />
         <input type="password" name="password" placeholder="password" />
         <button type="submit">Login</button>
     </form>
     <div class="login-bottom">
-        <a href="/user/create">Sign Up</a>
-        <a href="/user/reset-password">Reset Password</a>
+        <a href="{{ url_for('view.user.create') }}">Sign Up</a>
+        <a href="{{ url_for('view.user.resetpw') }}">Reset Password</a>
     </div>
 </div>
 {% endblock %}

@@ -9,6 +9,9 @@ export default class RaffleList extends React.Component {
             raffles: []
         };
 
+        this._restURL = window.location.origin + '/rafflemaker/rest/raffle/';
+        this._baseURL = window.location.origin + '/rafflemaker/raffle/';
+
         this.onRaffleClicked = this.onRaffleClicked.bind(this);
         this.onRemoveClicked = this.onRemoveClicked.bind(this);
     }
@@ -18,7 +21,7 @@ export default class RaffleList extends React.Component {
     }
 
     loadRaffles() {
-        window.fetch(window.location.origin + '/rest/raffles').then(res => res.json()).then((result) =>
+        window.fetch(window.location.origin + '/rafflemaker/rest/raffles').then(res => res.json()).then((result) =>
             this.setState({
                 raffles: result
             })
@@ -26,13 +29,13 @@ export default class RaffleList extends React.Component {
     }
 
     onRaffleClicked(id) {
-        window.location = window.location.origin + '/raffle/' + id
+        window.location = this._baseURL + id
     }
 
     onRemoveClicked(id) {
         self = this;
 
-        window.fetch(window.location.origin + '/rest/raffle/' + id, {
+        window.fetch(this._restURL + id, {
             method: 'DELETE'
         }).then(function(response) {
             if (!response.ok) {

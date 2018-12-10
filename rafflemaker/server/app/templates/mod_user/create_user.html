@@ -4,7 +4,7 @@
 <div id="create_user_view">
     <h1>Hi there!</h1>
     <p>Create your Rafflemaker user now!</p>
-    <form method="POST" action="/user/create">
+    <form method="POST" action="{{ url_for('view.user.create') }}">
         <input type="email" name="email" placeholder="Email Address" />
         <input type="text" name="name" placeholder="Your Name"/>
         <input type="password" name="password" placeholder="Your Password"/>

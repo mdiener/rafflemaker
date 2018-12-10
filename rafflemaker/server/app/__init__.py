@@ -6,6 +6,7 @@ from app.mod_raffles import raffles
 
 app = flask.Flask(__name__)
 app.secret_key = os.urandom(12)
+app.config["APPLICATION_ROOT"] = "/rafflemaker"
 
 
 def page_not_found(e):

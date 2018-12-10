@@ -3,6 +3,6 @@
 {% block content %}
 <div class="error-page error-404">
     <h1>404 - Not Found</h1>
-    <p>I'm sorry but the page you tried to access does not exist. <a href="/">Go back to home</a></p>
+    <p>I'm sorry but the page you tried to access does not exist. <a href="{{ url_for('index') }}">Go back to home</a></p>
 </div>
 {% endblock %}

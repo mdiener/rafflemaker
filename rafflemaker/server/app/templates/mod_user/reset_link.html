@@ -4,7 +4,7 @@
 <div id="reset_link_view">
     <h1>Enter New Password</h1>
     <p>Enter your new password here. You will be redirected to the login page once your new password has been saved.</p>
-    <form method="POST" action="/user/reset-link">
+    <form method="POST" action="{{ url_for('view.user.resetlink') }}">
         <input type="password" name="password" placeholder="Password" />
         <input type="hidden" name="hash" value="{{hash}}" />
         <button type="submit">Reset Password</button>

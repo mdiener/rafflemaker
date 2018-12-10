@@ -11,12 +11,15 @@ export default class Winners extends React.Component {
             winners: []
         };
 
+        this._restURL = window.location.origin + '/rafflemaker/rest/raffle/';
+        this._baseURL = window.location.origin + '/rafflemaker/raffle/';
+
         this.onDrawWinnersClicked = this.onDrawWinnersClicked.bind(this);
         this.onRedrawClicked = this.onRedrawClicked.bind(this);
     }
 
     componentDidMount() {
-        window.fetch(window.location.origin + '/rest/raffle/' + this.props.raffleid + '/contestants').then(res => res.json()).then((result) =>
+        window.fetch(this._restURL + this.props.raffleid + '/contestants').then(res => res.json()).then((result) =>
             this.setState({
                 contestants: result
             })
@@ -46,7 +49,7 @@ export default class Winners extends React.Component {
         document.querySelector('#draw_winner_btn').textContent = 'New Drawing';
         document.querySelector('#redraw_btn').style.display = 'none';
 
-        window.fetch(window.location.origin + '/rest/raffle/' + this.props.raffleid + '/winners').then(res => res.json()).then((result) =>
+        window.fetch(this._restURL + this.props.raffleid + '/winners').then(res => res.json()).then((result) =>
             this.setState({
                 winners: result
             })
@@ -86,7 +89,7 @@ export default class Winners extends React.Component {
         document.querySelector('#draw_winner_btn').textContent = 'New Drawing';
         document.querySelector('#redraw_btn').style.display = 'none';
 
-        window.fetch(window.location.origin + '/rest/raffle/' + this.props.raffleid + '/last-winners').then(res => res.json()).then((result) =>
+        window.fetch(this._restURL + this.props.raffleid + '/last-winners').then(res => res.json()).then((result) =>
             this.setState({
                 winners: result
             })

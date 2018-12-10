@@ -10,7 +10,8 @@
     <title>SummerHart</title>
 
     <!-- custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" /> -->
+    <link rel="stylesheet" href="/rafflemaker/static/css/styles.css" />
     {% endblock %}
 </head>
 <body>
@@ -45,6 +46,6 @@
     </div>
 
     {% block site_scripts %}{% endblock %}
-    <script src="{{ url_for('static', filename='js/bundle.js') }}" type="text/javascript"></script>
+    <script src="/rafflemaker/static/js/bundle.js" type="text/javascript"></script>
 </body>
 </html>
