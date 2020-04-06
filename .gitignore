@@ -1,5 +1,2 @@
-*.pyc
-__pycache__
-rafflemaker/static/node_modules
-rafflemaker/server/.venv
-rafflemaker/server/.env
+/node_modules/
+/public/build/
