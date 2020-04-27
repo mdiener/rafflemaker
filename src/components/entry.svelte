@@ -33,21 +33,23 @@ input, button {
 }
 
 input {
-  font-size: 1rem;
+  font-size: var(--font-regular);
   outline: none;
-  border: 1px solid var(--color-secondary);
+  border: 1px solid var(--color-primary);
 }
 
 button {
-  width: 15%;
+  width: 30px;
   background-color: var(--color-red);
   color: var(--color-white);
+  border-color: var(--color-red);
+  padding: 10px 5px 10px 5px;
 }
 
 input.input-name {
-  width: 50%;
+  width: calc(100% - 20% - 30px - 20px);
 }
 input.input-tickets {
-  width: 30%;
+  width: 20%;
 }
 </style>

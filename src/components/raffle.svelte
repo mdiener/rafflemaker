@@ -3,9 +3,10 @@
   import { tweened } from 'svelte/motion'
   import { cubicOut } from 'svelte/easing'
   import { fade } from 'svelte/transition'
-  import Dialog from './Dialog.svelte'
-  import Entries from './Entries.svelte'
-  import { entries, drawingStarted, drawingEnded } from './store.js'
+  import { entries } from '../stores/entries.js'
+  import { started as drawingStarted, ended  as drawingEnded } from '../stores/drawing.js'
+  import Dialog from '../components/dialog.svelte'
+  import Entries from '../components/entries.svelte'
 
   let winner = ''
 

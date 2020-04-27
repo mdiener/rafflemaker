@@ -28,6 +28,3 @@ function createEntries() {
 }
 
 export const entries = createEntries()
-
-export const drawingStarted = writable(false)
-export const drawingEnded = writable(false)

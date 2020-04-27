@@ -53,9 +53,9 @@
   align-self: center;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   padding: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--color-secondary);
   border-radius: 5px;
-  background-color: var(--color-white);
+  background-color: var(--color-primary-light);
   z-index: 1002;
 }
 

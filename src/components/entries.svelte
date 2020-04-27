@@ -1,6 +1,6 @@
 <script>
-  import Entry from './Entry.svelte'
-  import { entries } from './store.js'
+  import Entry from '../components/entry.svelte'
+  import { entries } from '../stores/entries.js'
 
   function removeEntry(event) {
     let myEntries = $entries
